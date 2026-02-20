@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amanda D'Souza - Data Analyst & Machine Learning Enthusiast</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" id="wp-block-library-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-includes/css/dist/block-library/style.min.css" media="all" />
+    <link rel="stylesheet" id="contact-form-7-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/plugins/contact-form-7/includes/css/styles.css" media="all" />
+    <link rel="stylesheet" id="impressive-portfolio-pro-slick-style-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/css/slick.min.css" media="all" />
+    <link rel="stylesheet" id="impressive-portfolio-pro-animate-style-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/css/animate.min.css" media="all" />
+    <link rel="stylesheet" id="impressive-portfolio-pro-google-fonts-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/fonts/c10c4ce817e876e37f26d47e06b929f3.css" media="all" />
+    <link rel="stylesheet" id="impressive-portfolio-pro-style-css" href="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/style.css" media="all" />
+
+    <style id="impressive-portfolio-pro-style-inline-css">
+        /* Color Profile */
+        :root {
+            --primary-color: #ee2b47;
+            --header-text-color: #ee2b47;
+            --font-heading: "Andada", serif;
+            --font-main: -apple-system, BlinkMacSystemFont, "Sora", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
+        body, button, input, select, optgroup, textarea {
+            font-family: "Sora", serif;
+        }
+
+        .site-title a {
+            font-family: "Sora", serif;
+        }
+
+        .site-description {
+            font-family: "Andada", serif;
+        }
+
+        /* Achievements Section Background */
+        .achievements-wrapper {
+            background-color: #fdfbf5;
+            padding: 80px 0 100px 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'Sora', sans-serif;
+        }
+
+        /* Massive Text with Image Masking */
+        .achievements-title-mask {
+            font-size: 6vw;
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 auto 50px auto;
+            text-transform: uppercase;
+            background-image: url('https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2022/10/pexels-cottonbro-studio-5082566.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.5s ease;
+            letter-spacing: 2px;
+        }
+
+        .achievements-title-mask:hover {
+            transform: scale(1.02);
+        }
+
+        /* Horizontal Scroll Gallery Container */
+        .gallery-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 40px calc(50vw - 200px); 
+            gap: 50px;
+            align-items: center;
+            scrollbar-width: none; 
+        }
+        
+        .gallery-track::-webkit-scrollbar {
+            display: none; 
+        }
+
+        /* Individual Image Cards */
+        .gallery-item {
+            scroll-snap-align: center;
+            min-width: 400px;
+            height: 300px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transform: scale(0.8);
+            opacity: 0.4;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Text on the Images */
+        .gallery-item .gallery-caption {
+            position: absolute;
+            bottom: -60px; 
+            left: 0;
+            width: 100%;
+            padding: 30px 20px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: bottom 0.5s ease-in-out;
+        }
+
+        /* ACTIVE STATE */
+        .gallery-item.active {
+            transform: scale(1.1);
+            opacity: 1;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border: 2px solid var(--primary-color);
+        }
+
+        .gallery-item.active img {
+            transform: scale(1.05); 
+        }
+
+        .gallery-item.active .gallery-caption {
+            bottom: 0; 
+        }
+
+        @media (max-width: 768px) {
+            .achievements-title-mask { font-size: 10vw; }
+            .gallery-item { min-width: 280px; height: 220px; }
+            .gallery-track { padding: 40px calc(50vw - 140px); gap: 20px; }
+        }
+    </style>
+
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-includes/js/jquery/jquery.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-includes/js/jquery/jquery-migrate.min.js"></script>
+</head>
+
+<body class="home wp-singular page-template-default page page-id-1891 wp-embed-responsive wp-theme-impressive-portfolio-pro light-theme sticky-header right-sidebar">
+    <div id="page" class="site">
+        <a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+        
+        <header id="masthead" class="site-header">
+            <div class="bottom-header-outer-wrapper">
+                <div class="bottom-header-part">
+                    <div class="ascendoor-wrapper">
+                        <div class="bottom-header-part-wrapper">
+                            <div class="site-branding">
+                                <div class="site-identity">
+                                    <p class="site-title"><a class="magic-hover magic-hover__square" href="#" rel="home">Amanda D'Souza</a></p>
+                                    <p class="site-description">Data Analyst &amp; Machine Learning Enthusiast</p>
+                                </div>
+                            </div>
+                            <div class="navigation-part">
+                                <nav id="site-navigation" class="main-navigation">
+                                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                                        <span></span><span></span><span></span>
+                                    </button>
+                                    <div class="main-navigation-links">
+                                        <div class="menu-primary-menu-container">
+                                            <ul id="menu-primary-menu" class="menu">
+                                                <li class="menu-item menu-item-home current-menu-item"><a href="#" class="magic-hover magic-hover__square">Home</a></li>
+                                                <li class="menu-item"><a href="#impressive_portfolio_pro_about_section" class="magic-hover magic-hover__square">About Me</a></li>
+                                                <li class="menu-item"><a href="#impressive_portfolio_pro_certifications_section" class="magic-hover magic-hover__square">Certifications</a></li>
+                                                <li class="menu-item"><a href="#impressive_portfolio_pro_portfolio_section" class="magic-hover magic-hover__square">Projects</a></li>
+                                                <li class="menu-item"><a href="#impressive_portfolio_pro_contact_section" class="magic-hover magic-hover__square">Contact</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main id="primary" class="site-main">
+            
+            <section id="impressive_portfolio_pro_banner_section" class="impressive-portfolio-main-banner-section banner-style-2 featured-typed">
+    
+    <style>
+        /* Container Layout */
+        .teams-social-custom {
+            display: flex;
+            justify-content: flex-start; /* Aligns icons to the left */
+            align-items: center;
+            gap: 20px; /* Space between icons */
+            margin-top: 25px;
+        }
+
+        /* Icon Links */
+        .teams-social-custom a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f5f5f5; /* Light grey circle background */
+            color: #333; /* Icon color */
+            font-size: 22px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            
+            /* CRITICAL FIX: Removes the "Double" ghost icons from the old theme */
+            border: none !important; 
+        }
+
+        /* CRITICAL FIX: Stops the theme from injecting extra content */
+        .teams-social-custom a::before, 
+        .teams-social-custom a::after {
+            content: none !important;
+            display: none !important;
+        }
+
+        /* Hover Effects */
+        .teams-social-custom a:hover {
+            background-color: #ee2b47; /* Your primary red color */
+            color: #ffffff;
+            transform: translateY(-5px); /* Moves up slightly on hover */
+            box-shadow: 0 8px 15px rgba(238, 43, 71, 0.3);
+        }
+    </style>
+
+    <div class="main-slider">
+        <div class="vertical-lines">
+            <div></div><div></div><div></div>
+        </div>
+        <div class="ascendoor-wrapper">
+            <div class="impressive-portfolio-banner-slider-single">
+                <div class="impressive-portfolio-banner-slider-detail">
+                    <div class="impressive-portfolio-banner-slider-detail-inside">
+                        <h3 class="impressive-portfolio-banner-head-title">
+                            <span class="hello-txt">Hi, I’m Amanda D'Souza</span>
+                        </h3>
+                        <div id="typed-strings">
+                            <span class="feature-text">Machine Learning Enthusiast</span>
+                            <span class="feature-text">Data Analyst</span>
+                            <span class="feature-text">NASA Citizen Scientist</span>
+                            <span class="feature-text">Prompt Engineer</span>
+                        </div>
+                        <div class="impressive-portfolio-banner-head-title">
+                            <span id="typed" class="feature-text"></span>
+                        </div>
+                        <p>I am a dedicated student specializing in AI, Machine Learning, and Cybersecurity, with hands-on experience as a Cisco intern and a published researcher.</p>
+                        
+                        <div class="social-icons-part">
+                            <div class="teams-social-custom">
+                                <a href="https://www.linkedin.com/in/amanda-d-souza-3a9017295" target="_blank" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/Amanda-DSouza7" target="_blank" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://scholar.google.com/citations?hl=en&user=VPX_UYUAAAAJ" target="_blank" title="Google Scholar">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="impressive-portfolio-banner-slider-img">
+                    <img src="wp-content/uploads/sites/289/2022/11/Amanda.png" alt="Amanda D'Souza">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <section id="impressive_portfolio_pro_skill_section" class="impressive-portfolio-frontpage-section skill-section">
+                <div class="ascendoor-wrapper">
+                    <div class="section-header-subtitle">
+                        <h3 class="section-title">My Expertise</h3>
+                        <p class="section-subtitle">Technical Skills</p>
+                    </div>
+                    <div class="impressive-portfolio-section-body">
+                        <div class="skill-wrapper">
+                            <div class="progressbar-single">
+                                <div class="progressbar" data-animate="false">
+                                    <div class="circle" data-percent="90" data-size="180" data-thickness="12" data-fill='{"color": "#ee2b47"}'>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <h3 class="progress-title">Python</h3>
+                                <h4 class="progress-subtitle">Data Analysis &amp; Scripting</h4>
+                            </div>
+                            <div class="progressbar-single">
+                                <div class="progressbar" data-animate="false">
+                                    <div class="circle" data-percent="85" data-size="180" data-thickness="12" data-fill='{"color": "#ee2b47"}'>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <h3 class="progress-title">Machine Learning</h3>
+                                <h4 class="progress-subtitle">YOLO, OpenCV, TensorFlow</h4>
+                            </div>
+                            <div class="progressbar-single">
+                                <div class="progressbar" data-animate="false">
+                                    <div class="circle" data-percent="80" data-size="180" data-thickness="12" data-fill='{"color": "#ee2b47"}'>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <h3 class="progress-title">Network Security</h3>
+                                <h4 class="progress-subtitle">VPNs, Firewalls, TCP/IP</h4>
+                            </div>
+                            <div class="progressbar-single">
+                                <div class="progressbar" data-animate="false">
+                                    <div class="circle" data-percent="75" data-size="180" data-thickness="12" data-fill='{"color": "#ee2b47"}'>
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <h3 class="progress-title">Web Dev</h3>
+                                <h4 class="progress-subtitle">HTML/CSS, React, Flask</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+
+            <section id="impressive_portfolio_pro_about_section" class="impressive-portfolio-frontpage-section impressive-portfolio-text-image-section about-style-1 impressive-portfolio-image-left">
+                <div class="ascendoor-wrapper">
+                    <div class="impressive-portfolio-text-image-section-wrapper">
+                        <div class="impressive-portfolio-text-image-section-image wow fadeInRight" data-wow-duration=".7s" data-wow-delay=".3s">
+                            <img width="650" height="800" src="wp-content/uploads/sites/289/2022/11/Amanda2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Amanda D'Souza" decoding="async" fetchpriority="high" />
+                        </div>
+                        <div class="impressive-portfolio-text-image-section-text section-header-subtitle small-title wow fadeInLeft" data-wow-duration=".7s" data-wow-delay=".3s">
+                            <h3 class="section-title">Know About Me</h3>
+                            <p class="description" style="text-align: justify; line-height: 1.8;">
+                                I am a dedicated student with a strong interest in Artificial Intelligence, Machine Learning, and Cybersecurity, backed by hands-on experience across various platforms and organizations. As a member of the Google Developer Student Club (GDSC) at Karunya, I’ve been actively involved in collaborative projects that focus on building practical, AI-driven solutions. In my role as the Value Orientation Co-Ordinator at AIMS (Association of Intelligent Machine Learning Solutions), I have contributed to promoting responsible and meaningful applications of machine learning in real-world scenarios. My time at the IIT Madras Research Park helped me explore emerging technologies while sharpening my project coordination and technical skills. As a trumpet player in the National Cadet Corps (NCC) Brass Band, I’ve had the honor of participating in national-level events such as Republic Day and Independence Day parades, representing both musical discipline and team spirit. I have also served as a Cybersecurity Intern at Cisco, where I gained exposure to key concepts such as network security, firewalls, and VPNs. In addition, my work as a Citizen Scientist with NASA involved asteroid research, including the visual classification of astronomical data, reflecting my keen eye for detail and love for exploration. My growing commitment to academic research and scientific writing is highlighted by my recent publications; I have a paper in Metrological and Metrical Science, as well as a newly published work titled "Demystifying Pulmonary Diagnostics: A Novel Explainable AI Framework for Transparent Clinical Decision Support" in the Journal of Carcinogenesis, both of which are indexed on Google Scholar. I also participated in the ICT Academic Regional Final, further strengthening my technical and analytical abilities. As part of the Outreach Club at Karunya, I had the opportunity to teach underprivileged students about ChatGPT and the basics of AI—an experience that reminded me of the importance of knowledge-sharing and inclusivity in tech. With every step, I aim to keep learning, growing, and contributing meaningfully to both the tech world and the community around me.
+                            </p>
+                            <div class="impressive-portfolio-button">
+                                <a class="magic-hover magic-hover__square" href="#impressive_portfolio_pro_contact_section">Contact Me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impressive_portfolio_pro_experience_section" class="impressive-portfolio-frontpage-section experience-section experience-alternate section-has-background">
+                <div class="ascendoor-wrapper">
+                    <div class="section-header-subtitle">
+                        <h3 class="section-title">Experience</h3>
+                        <p class="section-subtitle">My Professional Journey</p>
+                    </div>
+                    <div class="impressive-portfolio-section-body">
+                        <div class="experience-wrap">
+                            <div class="experience-timeline-item">
+                                <div class="experience-timeline-line"></div>
+                                <div class="experience-timeline-circle-wrapper"><span class="experience-timeline-circle">1</span></div>
+                                <div class="experience-content-wrapper">
+                                    <h3 class="experience-title"><a class="magic-hover magic-hover__square" href="#"><span>GDSC Member</span></a></h3>
+                                    <span class="experience-subtitle">Sep 2024 - Present</span>
+                                    <div class="experience-exceprt">
+                                        <p>Google Developer Student Club. Co-developed cloud-based apps using Java on Google Cloud and built data-analysis pipelines with BigQuery.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-timeline-item">
+                                <div class="experience-timeline-line"></div>
+                                <div class="experience-timeline-circle-wrapper"><span class="experience-timeline-circle">2</span></div>
+                                <div class="experience-content-wrapper">
+                                    <h3 class="experience-title"><a class="magic-hover magic-hover__square" href="#"><span>NASA Citizen Scientist</span></a></h3>
+                                    <span class="experience-subtitle">Mar 2024 - Aug 2024</span>
+                                    <div class="experience-exceprt">
+                                        <p>Discovered an asteroid passing Earth. Analyzed and classified astronomical images using Keras models in Python on Google Colab.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-timeline-item">
+                                <div class="experience-timeline-line"></div>
+                                <div class="experience-timeline-circle-wrapper"><span class="experience-timeline-circle">3</span></div>
+                                <div class="experience-content-wrapper">
+                                    <h3 class="experience-title"><a class="magic-hover magic-hover__square" href="#"><span>CyberSecurity Intern</span></a></h3>
+                                    <span class="experience-subtitle">Cisco | May 2024 - Jul 2024</span>
+                                    <div class="experience-exceprt">
+                                        <p>Secured network infrastructure focusing on threat prevention. Implemented advanced detection techniques improving reliability by 30%.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="experience-timeline-item">
+                                <div class="experience-timeline-line"></div>
+                                <div class="experience-timeline-circle-wrapper"><span class="experience-timeline-circle">4</span></div>
+                                <div class="experience-content-wrapper">
+                                    <h3 class="experience-title"><a class="magic-hover magic-hover__square" href="#"><span>Club Member</span></a></h3>
+                                    <span class="experience-subtitle">IIT Madras Build-in Club | Aug 2024 - Feb 2025</span>
+                                    <div class="experience-exceprt">
+                                        <p>Developed hardware projects like Micro Mouse and LED Rolling Display. Integrated hardware with React.js for web applications.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+
+            <section id="impressive_portfolio_pro_certifications_section" class="impressive-portfolio-frontpage-section experience-section section-has-background" style="background: #1b1b21;">
+                <div class="ascendoor-wrapper">
+                    <div class="section-header-subtitle">
+                        <h3 class="section-title" style="color: #ffffff;">Certification Achievements</h3>
+                    </div>
+                    <div class="impressive-portfolio-section-body">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Oracle | Issued Sep 2025</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Introduction to Industry 4.0 and Industrial</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">NPTEL | Issued Oct 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">English Language for Competitive Exams</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">NPTEL | Issued Apr 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Programming Essentials in Python</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Cisco | Issued Feb 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Google Cybersecurity Specialization</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Automate Cybersecurity Tasks with Python</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Sound the Alarm: Detection and Response</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Put It to Work: Prepare for Cybersecurity Jobs</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Tools of the Trade: Linux and SQL</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Assets, Threats, and Vulnerabilities</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jan 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Foundations of Cybersecurity</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Dec 2023</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Play It Safe: Manage Security Risks</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Dec 2023</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Connect and Protect: Networks and Network Security</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Dec 2023</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Ask Questions to Make Data-Driven Decisions</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Aug 2024</span>
+                            </div>
+                            <div style="background: #25252c; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                <h3 style="font-size: 1.1em; color: #fff; margin-bottom: 5px;">Foundations: Data, Data, Everywhere</h3>
+                                <span style="color: #abb8c3; font-size: 0.9em;">Google | Issued Jul 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impressive_portfolio_pro_portfolio_section" class="impressive-portfolio-frontpage-section portfolio-section portfolio-style-1">
+                <div class="ascendoor-wrapper">
+                    <div class="section-header-subtitle">
+                        <h3 class="section-title">My Projects</h3>
+                        <p class="section-subtitle">Featured Works</p>
+                    </div>
+                    <div class="impressive-portfolio-section-body">
+                        <div class="portfolio-body grid">
+                            <div class="grid-item">
+                                <div class="portfolio-single">
+                                    <div class="portfolio-img">
+                                        <img width="1280" height="964" src="wp-content/uploads/sites/289/2022/11/AI_Image_Generator_Platform.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="AI Image Generator" />
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h3 class="portfolio-title">
+                                            <a class="magic-hover magic-hover__square" href="#">AI Image Generator</a>
+                                        </h3>
+                                        <p class="portfolio-category">Python, Flask, React</p>
+                                        <p style="color:white; font-size: 0.9em; margin-top: 10px;">Developed an AI-powered web app for text-to-image synthesis using Stable Diffusion models from Hugging Face.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="portfolio-single">
+                                    <div class="portfolio-img">
+                                        <img width="1280" height="853" src="wp-content/uploads/sites/289/2022/Climate%20Change%20Dashboard.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Climate Change Dashboard" />
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h3 class="portfolio-title">
+                                            <a class="magic-hover magic-hover__square" href="#">Climate Change Dashboard</a>
+                                        </h3>
+                                        <p class="portfolio-category">Python, Pandas, Plotly</p>
+                                        <p style="color:white; font-size: 0.9em; margin-top: 10px;">Interactive dashboard visualizing global climate data using NASA GISTEMP and NOAA datasets.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="portfolio-single">
+                                    <div class="portfolio-img">
+                                        <img width="1279" height="853" src="wp-content/uploads/sites/289/2022/Skin%20Cancer%20Detection.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Skin Cancer Detection" />
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h3 class="portfolio-title">
+                                            <a class="magic-hover magic-hover__square" href="#">Skin Cancer Detection</a>
+                                        </h3>
+                                        <p class="portfolio-category">YOLO, OpenCV</p>
+                                        <p style="color:white; font-size: 0.9em; margin-top: 10px;">Real-time detection system using YOLO via webcam input with bounding box prediction.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item">
+                                <div class="portfolio-single">
+                                    <div class="portfolio-img">
+                                        <img width="1280" height="853" src="wp-content/uploads/sites/289/2022/11/Campus%20GreenLink.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Campus GreenLink" />
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <h3 class="portfolio-title">
+                                            <a class="magic-hover magic-hover__square" href="#">Campus GreenLink</a>
+                                        </h3>
+                                        <p class="portfolio-category">Web Application</p>
+                                        <p style="color:white; font-size: 0.9em; margin-top: 10px;">Complete Application Analysis: A comprehensive food sharing and sustainability platform designed for university campuses, focusing on reducing food waste while building community engagement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </section>
+
+            <section id="impressive_portfolio_pro_counter_section" class="impressive-portfolio-frontpage-section impressive-portfolio-counter-section section-has-background counter-style-1" style="background-color: #ed6a7e;">
+                <div class="impressive-portfolio-counter-background-img">
+                    <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2023/06/pexels-otavio-fonseca-4665064.jpg" alt="Background">
+                </div>
+                <div class="ascendoor-wrapper">
+                    <div class="impressive-portfolio-counter-details">
+                        <div class="impressive-portfolio-section-body">
+                            <div class="impressive-portfolio-counter-wrapper">
+                                <div class="impressive-portfolio-counter-single wow fadeInUp" data-wow-delay="200ms">
+                                    <div class="impressive-portfolio-counter-img">
+                                        <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2023/06/clock.png" alt="Code Commits">
+                                    </div>
+                                    <div class="impressive-portfolio-counter-txt">
+                                        <h3><span class="count" data-count="500"></span>+</h3>
+                                        <p>Code Commits</p>
+                                    </div>
+                                </div>
+                                <div class="impressive-portfolio-counter-single wow fadeInUp" data-wow-delay="400ms">
+                                    <div class="impressive-portfolio-counter-img">
+                                        <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2023/06/project.png" alt="Projects Done">
+                                    </div>
+                                    <div class="impressive-portfolio-counter-txt">
+                                        <h3><span class="count" data-count="12"></span>+</h3>
+                                        <p>Projects Completed</p>
+                                    </div>
+                                </div>
+                                <div class="impressive-portfolio-counter-single wow fadeInUp" data-wow-delay="600ms">
+                                    <div class="impressive-portfolio-counter-img">
+                                        <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2023/06/customer.png" alt="Research Papers">
+                                    </div>
+                                    <div class="impressive-portfolio-counter-txt">
+                                        <h3><span class="count" data-count="2"></span></h3>
+                                        <p>Research Papers</p>
+                                    </div>
+                                </div>
+                                <div class="impressive-portfolio-counter-single wow fadeInUp" data-wow-delay="800ms">
+                                    <div class="impressive-portfolio-counter-img">
+                                        <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2023/06/award.png" alt="Certifications">
+                                    </div>
+                                    <div class="impressive-portfolio-counter-txt">
+                                        <h3><span class="count" data-count="15"></span></h3>
+                                        <p>Certifications</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="impressive_portfolio_pro_blog_section" class="impressive-portfolio-frontpage-section impressive-portfolio-blog-section blog-style-1">
+                <div class="ascendoor-wrapper">
+                    <div class="section-header-subtitle">
+                        <h3 class="section-title">Research Publications</h3>
+                    </div>
+                    <div class="impressive-portfolio-section-body">
+                        <div class="impressive-portfolio-blog-section-wrapper">
+                            <div class="impressive-portfolio-blog-single wow fadeInUp" data-wow-delay="200ms">
+                                <div class="impressive-portfolio-blog-img">
+                                    <a href="https://www.metall-mater-eng.com/index.php/home/article/view/1263"><img width="1280" height="853" src="wp-content/uploads/sites/289/2022/11/RP1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Publication 1" /></a>
+                                </div>
+                                <div class="impressive-portfolio-detail">
+                                    <h3 class="impressive-portfolio-blog-title">
+                                        <a class="magic-hover magic-hover__square" href="https://www.metall-mater-eng.com/index.php/home/article/view/1263">Enhancing Remote Patient Monitoring through IoT</a>
+                                    </h3>
+                                    <div class="impressive-portfolio-description">
+                                        A Wearable Sensor Fusion Approach for Cardiovascular Health Management. Published in Metallurgical and Materials Engineering, Google Scholars.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="impressive-portfolio-blog-single wow fadeInUp" data-wow-delay="400ms">
+                                <div class="impressive-portfolio-blog-img">
+                                    <a href="https://carcinogenesis.com/index.php/JOC/article/view/1015"><img width="1279" height="853" src="wp-content/uploads/sites/289/2022/11/RP2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Publication 2" /></a>
+                                </div>
+                                <div class="impressive-portfolio-detail">
+                                    <h3 class="impressive-portfolio-blog-title">
+                                        <a class="magic-hover magic-hover__square" href="https://carcinogenesis.com/index.php/JOC/article/view/1015">Demystifying Pulmonary Diagnostics</a>
+                                    </h3>
+                                    <div class="impressive-portfolio-description">
+                                        A Novel Explainable AI Framework for Transparent Clinical Decision Support. Published in Journal of Carcinogenesis, Google Scholars.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="achievements_gallery" class="achievements-wrapper">
+                <h2 class="achievements-title-mask">Achievements<br>Gallery</h2>
+                <div class="gallery-track-container">
+                    <div class="gallery-track" id="galleryTrack">
+                        <div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/AIMS.png" alt="Association">
+                            <div class="gallery-caption">AIMS Association</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/IIT_Madras.png" alt="Club">
+                            <div class="gallery-caption">IIT Madras Built-in Club</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/NCC.png" alt="Ncc">
+                            <div class="gallery-caption">NCC Brass Band</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/Outreach%20club.png" alt="Out Reach Club">
+                            <div class="gallery-caption">OutReach Club</div>
+                        </div>
+						<div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/GDSC.png" alt="Google Developer Student Club">
+                            <div class="gallery-caption">Google Developer Student Club</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="wp-content/uploads/sites/289/2022/Achievement_Image/Journal.png" alt="Journal Publication">
+                            <div class="gallery-caption">Journal Publication Award</div>
+                        </div>  
+                    </div>
+                </div>
+            </section>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const track = document.getElementById("galleryTrack");
+                    const items = document.querySelectorAll(".gallery-item");
+
+                    track.addEventListener("wheel", (evt) => {
+                        evt.preventDefault();
+                        track.scrollBy({
+                            left: evt.deltaY < 0 ? -150 : 150,
+                            behavior: 'smooth'
+                        });
+                    });
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                items.forEach(item => item.classList.remove("active"));
+                                entry.target.classList.add("active");
+                            }
+                        });
+                    }, {
+                        root: track,
+                        rootMargin: "0px -40% 0px -40%", 
+                        threshold: 0
+                    });
+
+                    items.forEach(item => observer.observe(item));
+                });
+            </script>
+        
+            <section id="impressive_portfolio_pro_contact_section" class="impressive-portfolio-frontpage-section impressive-portfolio-grey-background section-has-background impressive-portfolio-contact-section contact-style-1">
+                <div class="ascendoor-wrapper">
+                    <div class="contact-main-wrapper">
+                        <div class="section-header-subtitle contact-header-wrap">
+                            <h3 class="section-title">Get in touch</h3>
+                        </div>
+                        <div class="Contact-address-wrap">
+                            <div class="contact-address">
+                                <div class="contact-address-inner">
+                                    <div class="icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="inner">
+                                        <h4 class="title">Phone number</h4>
+                                        <p><a href="tel:9620243965">+91-9620243965</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-address">
+                                <div class="contact-address-inner">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="inner">
+                                        <h4 class="title">Email Address</h4>
+                                        <p><a href="mailto:amanda.kuttu05@gmail.com">amanda.kuttu05@gmail.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-address">
+                                <div class="contact-address-inner">
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="inner">
+                                        <h4 class="title">Address</h4>
+                                        <p>Bangalore, Karnataka, India</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form-wrap">
+                            <div class="wpcf7 no-js" id="wpcf7-f4-o1" lang="en-US" dir="ltr" data-wpcf7-id="4">
+                                <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+                                <form action="https://formspree.io/f/xqeddaya" method="POST" class="wpcf7-form init" aria-label="Contact form">
+                                    <p>
+                                        <label> Your name<br />
+                                        <span class="wpcf7-form-control-wrap" data-name="your-name">
+                                            <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" autocomplete="name" aria-required="true" aria-invalid="false" value="" type="text" name="your-name" required />
+                                        </span> 
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label> Your email<br />
+                                        <span class="wpcf7-form-control-wrap" data-name="your-email">
+                                            <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" autocomplete="email" aria-required="true" aria-invalid="false" value="" type="email" name="your-email" required />
+                                        </span> 
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label> Subject<br />
+                                        <span class="wpcf7-form-control-wrap" data-name="your-subject">
+                                            <input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="your-subject" required />
+                                        </span> 
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label> Your message<br />
+                                        <span class="wpcf7-form-control-wrap" data-name="your-message">
+                                            <textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" name="your-message"></textarea>
+                                        </span> 
+                                        </label>
+                                    </p>
+                                    <p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Submit" /></p>
+                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="contact-section-img">
+                            <img src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/uploads/sites/289/2022/10/pexels-soner-arkan-13270850-1-min.jpg" alt="Get in touch">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="colophon" class="site-footer">
+            <a href="#" id="scroll-to-top" class="impressive-portfolio-scroll-to-top magic-hover magic-hover__square">
+                <i class="fas fa-chevron-up"></i>
+                <div class="progress-wrap">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            </a>
+        </footer>
+    </div>
+
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-includes/js/dist/hooks.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-includes/js/dist/i18n.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/plugins/contact-form-7/includes/swv/js/index.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/plugins/contact-form-7/includes/js/index.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/navigation.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/slick.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/isotope.pkgd.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/magic_mouse.cdn.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/circle-progress.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/typed.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/wow.min.js"></script>
+    <script src="https://demos.ascendoor.com/impressive-portfolio-pro/wp-content/themes/impressive-portfolio-pro/assets/js/custom.min.js"></script>
+</body>
+</html>
